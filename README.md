@@ -8,7 +8,7 @@ This project focuses on providing clear, step-by-step definitions and examples o
 This is a response to the Assignment part of the COURSE.
 -->
 
-* Authors: [Puneeth Sai Rama Raju Kucherlapati](http://www.YOURPAGE.xxx),[Sree Ram Varma Chinthalapati](http://www.YOURPAGE.xxx),[Vikas varma paricherla](http://www.YOURPAGE.xxx)
+* Authors: [Puneeth Sai Rama Raju Kucherlapati](http://www.YOURPAGE.xxx), [Sree Ram Varma Chinthalapati](http://www.YOURPAGE.xxx), [Vikas varma paricherla](http://www.YOURPAGE.xxx)
 * Academic Supervisor: [Dr. Fernando Koch](http://www.fernandokoch.me)
 
   
