@@ -1,4 +1,5 @@
 # Rebels_GenAI
+![GenI-Banner](https://github.com/genilab-fau/genial-fau.github.io/blob/8f1a2d3523f879e1082918c7bba19553cb6e7212/images/geni-lab-banner.png?raw=true)
 
 # Simplifying Data Structures and Algorithms (DSA) Concepts for Clarity
 
