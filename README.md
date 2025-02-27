@@ -1,50 +1,71 @@
-# Rebels_GenAI
 ![GenI-Banner](https://github.com/genilab-fau/genial-fau.github.io/blob/8f1a2d3523f879e1082918c7bba19553cb6e7212/images/geni-lab-banner.png?raw=true)
 
-# Simplifying Data Structures and Algorithms (DSA) Concepts for Clarity
 
-This project focuses on providing clear, step-by-step definitions and examples of essential DSA concepts like sorting algorithms, graph algorithms, and tree data structures.
+# Prompt Engineering Lab
 
-<!-- WHEN APPLICABLE, REMOVE THE COMMENT MARK AND COMPLETE  
-This is a response to the Assignment part of the COURSE.
--->
+The Prompt Engineering Lab serves as an Education and Experimentation Hub provided by The Generative Intelligence Lab @ FAU. Prompt Engineering is a rapidly evolving discipline at the intersection of Artificial Intelligence and Natural Language Processing. This lab is designed to help students, researchers, and developers experiment with the art of creating and refining prompts, offering easy-to-follow resources and opportunities to contribute, collaborate, and share their work.
 
-* Authors: [Puneeth Sai Rama Raju Kucherlapati](pkucherlapat2024@fau.edu), [Sree Ram Varma Chintalapati](schintalapat2024@fau.edu), [Vikas varma Pericherla](vpericherla2024@fau.edu)
-* Academic Supervisor: [Dr. Fernando Koch](http://www.fernandokoch.me)
+Prompt Engineering has emerged as a critical component in unlocking the full potential of language models such as Phi, LLaMA, and Qwen. As AI systems continue to revolutionize problem-solving, mastering how to guide and optimize these models through effective prompting techniques is essential for cutting-edge research, practical applications, and future innovation.
 
-  
-# Research Question
+This lab provides a hands-on learning environment where participants can actively apply their knowledge through Python code, Jupyter notebooks, and practical exercises designed to foster both experimentation and discovery.
 
-How can fundamental DSA concepts such as sorting, graph algorithms, and tree data structures be broken down and presented interactively to foster easier understanding and investigation?
+Note: first, you need to **Configure your Lab Environment**:
+* [Configure Lab Environment for General Audience](CONFIG.md)
+* [Configure Lab Environment for FAU Students](CONFIG-FAU.md)
+* [Troubleshooting ](https://github.com/genilab-fau/prompt-eng/blob/cb2fefa33f5a1c5a927f1246917f73943d3b99ce/TROUBLESHOOTING.md)
 
-## Arguments
 
-#### What is already known about this topic
+# Prompt Engineering Techniques
 
-* Sorting algorithms, graph algorithms, and tree data structures are core concepts in DSA, but their complexity often creates a barrier to learning.
-* The challenges of explaining DSA concepts include breaking down abstract ideas into simpler, digestible components that encourage interactive learning.
-* The possibility of interactive tools could make understanding these concepts easier and more engaging for learners, encouraging deeper exploration of algorithms and data structures.
+* [Zero-Shot](prompt-eng/zero_shot.ipynb)
+* [Few-Shot](prompt-eng/few_shots.ipynb)
+* [Prompt Template](prompt-eng/prompt_template.ipynb)
+* [Chain-of-Thought](prompt-eng/chain_of_thought.ipynb)
+* [Meta Prompting](prompt-eng/meta.ipynb)
+* [Self Consistency](prompt-eng/self_consistency.ipynb)
+* ...
+* (more to come; check [Contributing](https://github.com/genilab-fau/prompt-eng/blob/cb2fefa33f5a1c5a927f1246917f73943d3b99ce/CONTRIBUTING.md)
 
-#### What this research is exploring
+# Experimenting
 
-* We employ step-by-step breakdowns of key DSA concepts, including sorting algorithms like Bubble Sort, Quick Sort, and Merge Sort, as well as foundational tree structures like Binary Trees and Binary Search Trees.
-* We are building an interactive learning environment where users can experiment with algorithms and visualize tree structures.
-* We are exploring the effectiveness of providing predefined responses for common questions, allowing for more streamlined interactions while ensuring clarity.
+Once you have your installation completed (follow [Configure Lab Environment](CONFIG.md)), you can experiment with the out-of-the-box Prompt Engineering techniques being provided above OR create your own experiments by modifying the code in a few points (or creating new code).
 
-#### Implications for practice
+#### (1) Adjust the inbounding  Prompt, simulating inbounding requests from users or other systems
 
-* It will be easier to learn and understand DSA concepts through interactive, guided steps, which may lead to faster mastery of algorithms and data structures.
-* It will optimize educational tools for algorithm and data structure learning by providing immediate, easy-to-understand explanations, fostering better retention.
-* We will better understand how different teaching methods (like step-by-step guidance and interactive tools) impact learning effectiveness.
+```python
 
-# Research Method
+MESSAGE = "What is 2 * log(10)?"
 
-We are using a combination of interactive coding environments and structured explanations to build a learning module. The project includes predefined question-answer interactions for key DSA topics, allowing learners to easily access and understand complex concepts. We are also collecting user feedback to continuously improve the interaction flow and content clarity.
+```
 
-# Results
+#### (2) Adjust the Prompt Engineering Technique to be applied, simulating Workflow Templates
 
-The interactive module has proven effective in helping users understand and engage with fundamental DSA concepts. Predefined responses and step-by-step breakdowns significantly improve comprehension of sorting algorithms, graph algorithms, and tree data structures, making them more approachable for beginners.
+```python
 
-# Further research
+TEMPLATE_BEFORE = "Act like you are a math teacher\nYour student is asking:"
+TEMPLATE_AFTER = "Give only the answer; refrain from any more information"
+PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
 
-Further research could explore the impact of gamifying the learning process or integrating visualizations of algorithm operations. Additionally, expanding the tool to include more advanced topics and interactive challenges could further enhance the learning experience.
+```
+
+#### (3) Configure the Model request, simulating Workflow Orchestration
+
+Documentation about [available parameters](https://github.com/ollama/ollama/blob/main/docs/api.md).
+
+```python
+
+payload = create_payload(target="ollama",
+                         model="llama3.2:latest", 
+                         prompt=PROMPT, 
+                         temperature=1.0, 
+                         num_ctx=100, 
+                         num_predict=100)
+```
+
+
+## References
+ 
+* [Meta - Prompting Guide](https://www.llama.com/docs/how-to-guides/prompting/)
+* [OpenAI Prompting Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
+* [Ollama API](https://github.com/ollama/ollama/blob/main/docs/api.md)
+* [Open WebUI Endpoints](https://docs.openwebui.com/getting-started/api-endpoints/)
